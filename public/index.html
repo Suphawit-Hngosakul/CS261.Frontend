@@ -12,10 +12,19 @@
         <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
+
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+
+            <!-- Role Selection Dropdown -->
+            <label for="role">Select your role:</label>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="student">Student</option>
+                <option value="lecturer">Lecturer</option>
+            </select>
+
             <button type="button" onclick="submitLogin()">Login</button>
-            <button type="button" onclick="call_REST_API_Hello()">Hello</button>
         </form>
         <p id="message"></p>
     </div>
