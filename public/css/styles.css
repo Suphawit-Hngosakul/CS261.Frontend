@@ -104,3 +104,32 @@ button:hover {
 .close:hover {
     cursor: pointer;
 }
+
+/* สไตล์สำหรับปุ่ม login */
+#loginBtn {
+    background-color: #cccccc; /* สีพื้นหลังเมื่อปิดใช้งาน */
+    color: #ffffff; /* สีตัวอักษรเมื่อปิดใช้งาน */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed; /* เปลี่ยนเป็นรูปลูกศรแสดงว่าปิดการใช้งาน */
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* เพิ่ม transition ให้การเปลี่ยนสีดูนุ่มนวล */
+}
+
+/* เมื่อปุ่มสามารถกดได้ */
+#loginBtn:enabled {
+    background-color: #28a745; /* สีพื้นหลังเมื่อเปิดใช้งาน */
+    cursor: pointer; /* เปลี่ยน cursor เป็น pointer เมื่อปุ่มสามารถกดได้ */
+}
+
+/* เมื่อ hover บนปุ่มที่เปิดใช้งาน */
+#loginBtn:enabled:hover {
+    background-color: #218838; /* สีพื้นหลังเมื่อ hover บนปุ่มที่เปิดใช้งาน */
+}
+
+/* เมื่อ focus ที่ปุ่มที่เปิดใช้งาน */
+#loginBtn:enabled:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(40, 167, 69, 0.5); /* แสดงขอบที่ชัดเจนเมื่อปุ่มถูก focus */
+}

@@ -1,49 +1,26 @@
-function call_REST_API_Hello() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// function call_REST_API_Hello() {
+//     const username = document.getElementById('username').value;
+//     const password = document.getElementById('password').value;
 
-    const url = (
-        'http://localhost:8080/services/hello?' +
-        new URLSearchParams({ myName: username, lastName: password}).toString()
-      );
+//     const url = (
+//         'http://localhost:8080/services/hello?' +
+//         new URLSearchParams({ myName: username, lastName: password}).toString()
+//       );
     
-    fetch(url)
-    .then(response => response.text())
-    .then(text => {
-        document.log("Text return from REST API: "+text);
-        document.getElementById('message').innerText = text;92504
-    })
-    .catch(error => console.error('Error:', error));
-}
+//     fetch(url)
+//     .then(response => response.text())
+//     .then(text => {
+//         document.log("Text return from REST API: "+text);
+//         document.getElementById('message').innerText = text;92504
+//     })
+//     .catch(error => console.error('Error:', error));
+// }
 
 function submitLogin() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const role = document.getElementById('role').value;
-    
-    //validate email
-    function ValidEmail(email) {
-        const emailPattern = /^.+@dome\.tu\.ac\.th$/; 
-        return emailPattern.test(email);
-    }
-    //validate
-    if (username === '' || (username.length < 10 && !ValidEmail(username))) {
-        document.getElementById('message').style.color = 'ff0000';
-        message.innerText = 'Please enter your student ID or employee email address.';
-        return;
-    }
-
-    if (password === '' || password.length < 4) {
-        document.getElementById('message').style.color = 'ff0000';
-        message.innerText = 'Password must be at least 4 characters long.';
-        return; 
-    }
-
-    if (role === '') {
-        document.getElementById('message').style.color = 'ff0000';
-        message.innerText = 'Please select your role.';
-        return; 
-    }
+    const loginBtn = document.getElementById('loginBtn');
 
     //API TU 
     fetch('https://restapi.tu.ac.th/api/v1/auth/Ad/verify', {
@@ -127,3 +104,20 @@ function closedelete() {
     location.reload();
     document.getElementById('message').innerText = '';
 }
+
+function checkInputs() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const role = document.getElementById('role').value.trim();
+    const loginBtn = document.getElementById('loginBtn');
+
+    if (username !== '' && password !== '' && role !== '') {
+        loginBtn.disabled = false; // Enable the button if all fields are filled
+    } else {
+        loginBtn.disabled = true; // Disable the button if any field is empty
+    }
+}
+
+document.getElementById('username').addEventListener('input', checkInputs);
+document.getElementById('password').addEventListener('input', checkInputs);
+document.getElementById('role').addEventListener('change', checkInputs);
