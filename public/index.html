@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div id="Profile"></div>
     <div class="login-container">
         <h1>Login</h1>
         <form id="loginForm">
@@ -21,13 +22,14 @@
             <select id="role" name="role" required>
                 <option value="" disabled selected>Select your role</option>
                 <option value="student">Student</option>
-                <option value="lecturer">Lecturer</option>
+                <option value="employee">Employee</option>
             </select>
 
             <button type="button" onclick="submitLogin()">Login</button>
         </form>
         <p id="message"></p>
     </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
