@@ -47,7 +47,7 @@ function submitLogin() {
         }
 
         //Show date
-        function showdate(date) {
+        function showdata(data) {
             const container = document.getElementById('Profile');
             document.getElementById('Profile').style.display = 'block';
             document.getElementById('Profile').style.position = 'fixed';
@@ -88,7 +88,7 @@ function submitLogin() {
 
         document.getElementById('message').style.color = 'green';
         document.getElementById('message').innerText = data.message;
-        showdate(data);
+        showdata(data);
     })
     .catch(error => {
         // console.error('Error:', error),
